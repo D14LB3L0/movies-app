@@ -39,6 +39,13 @@ class Movie {
     }
     return 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg';
   }
+  
+  get fullbackdropPath {
+    if (posterPath != null) {
+      return 'https://image.tmdb.org/t/p/w500$backdropPath';
+    }
+    return 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg';
+  }
 
   factory Movie.fromJson(String str) => Movie.fromMap(json.decode(str));
 
