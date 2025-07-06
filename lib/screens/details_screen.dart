@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies/widgets/casting_cards.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({super.key});
@@ -12,9 +13,15 @@ class DetailsScreen extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           _CustomAppBar(),
-          SliverList(delegate: SliverChildListDelegate([
-            _PosterAndTitle(),
-          ])),
+          SliverList(
+            delegate: SliverChildListDelegate([
+              _PosterAndTitle(),
+              _OverView(),
+              _OverView(),
+              _OverView(),
+              CastingCards(),
+            ]),
+          ),
         ],
       ),
     );
@@ -33,6 +40,7 @@ class _CustomAppBar extends StatelessWidget {
         centerTitle: true,
         titlePadding: EdgeInsets.all(0),
         title: Container(
+          padding: EdgeInsets.only(bottom: 5),
           width: double.infinity,
           color: Colors.black12,
           alignment: Alignment.bottomCenter,
@@ -54,7 +62,6 @@ class _CustomAppBar extends StatelessWidget {
 class _PosterAndTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     final textTheme = Theme.of(context).textTheme;
 
     return Container(
@@ -76,19 +83,45 @@ class _PosterAndTitle extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('movie.title', style: textTheme.headlineSmall, overflow: TextOverflow.ellipsis, maxLines: 2),
-              Text('movie.originalTitle', style: textTheme.titleMedium, overflow: TextOverflow.ellipsis, maxLines: 2),
+              Text(
+                'movie.title',
+                style: textTheme.headlineSmall,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+              ),
+              Text(
+                'movie.originalTitle',
+                style: textTheme.titleMedium,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+              ),
 
               Row(
                 children: [
                   Icon(Icons.star_outline, size: 15, color: Colors.grey),
                   SizedBox(width: 5),
-                  Text('movie.voteAverage', style: textTheme.bodySmall,)
+                  Text('movie.voteAverage', style: textTheme.bodySmall),
                 ],
-              )
+              ),
             ],
-          )
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class _OverView extends StatelessWidget {
+  const _OverView();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+      child: Text(
+        'Deserunt amet ut pariatur ipsum dolor nisi do. Nulla elit dolore nulla do sit laboris duis. Sunt amet nulla irure qui deserunt do. Excepteur ullamco ea tempor Lorem veniam nisi Lorem aute sunt Lorem duis pariatur. Pariatur magna officia labore duis sit sunt est ipsum et dolore duis in dolor officia. Dolore voluptate consequat aliquip aliquip ad id incididunt ea veniam. Dolor consequat elit et enim occaecat.',
+        textAlign: TextAlign.justify,
+        style: Theme.of(context).textTheme.titleMedium,
       ),
     );
   }
