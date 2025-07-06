@@ -1,16 +1,14 @@
-# movies
+# Movies
 
-A new Flutter project.
+A Flutter application that uses [The Movie Database (TMDB)](https://www.themoviedb.org/) API to display movie data.
 
-## Getting Started
+## 🚀 Requirements to Run the App
 
-This project is a starting point for a Flutter application.
+To run this project, you **must create a `.env` file** in the root directory and **place your TMDB API data there**. The project will use these environment variables to make API requests.
 
-A few resources to get you started if this is your first Flutter project:
+Create a file named `.env` and add the following:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```env
+API_KEY=your_tmdb_api_key
+BASE_URL=api.themoviedb.org
+LANGUAGE=en-US
