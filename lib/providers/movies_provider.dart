@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 
@@ -10,6 +9,8 @@ class MoviesProvider extends ChangeNotifier {
   final String _apiKey = dotenv.env['API_KEY'] ?? '';
   final String _baseUrl = dotenv.env['BASE_URL'] ?? '';
   final String _language = dotenv.env['LANGUAGE'] ?? 'en-US';
+
+  List<Movie> onDisplayMovies = []; 
 
   MoviesProvider() {
     print('MoviesProvider iniatilize');
@@ -27,7 +28,8 @@ class MoviesProvider extends ChangeNotifier {
     final response = await http.get(url);
     final discoverMovieResponse=DiscoverMovieResponse.fromJson(response.body);
 
-    print(discoverMovieResponse.results[0].title);
-
+    onDisplayMovies = discoverMovieResponse.results;
+    
+    notifyListeners();
   }
 }
