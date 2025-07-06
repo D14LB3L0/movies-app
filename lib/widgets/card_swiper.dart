@@ -5,12 +5,20 @@ import 'package:movies/models/models.dart';
 
 class CardSwiper extends StatelessWidget {
   final List<Movie> movies;
-  
+
   const CardSwiper({super.key, required this.movies});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+
+    if (movies.isEmpty) {
+      return SizedBox(
+        width: double.infinity,
+        height: size.height * 0.5,
+        child: Center(child: CircularProgressIndicator()),
+      );
+    }
 
     return Container(
       width: double.infinity,
@@ -22,8 +30,7 @@ class CardSwiper extends StatelessWidget {
         itemWidth: size.width * 0.6,
         itemHeight: size.height * 0.5,
         itemBuilder: (_, int index) {
-
-          final movie = movies[index]; 
+          final movie = movies[index];
 
           return GestureDetector(
             onTap: () => Navigator.pushNamed(
