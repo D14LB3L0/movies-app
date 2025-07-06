@@ -4,8 +4,13 @@ import 'screens/screens.dart';
 import 'package:provider/provider.dart';
 import 'package:movies/theme/app_theme.dart';
 import 'package:movies/providers/movies_provider.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() => runApp(const AppState());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await dotenv.load(fileName: ".env");
+  runApp(const AppState());
+}
 
 class AppState extends StatelessWidget {
   const AppState({super.key});
