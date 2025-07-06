@@ -5,14 +5,16 @@ class MovieSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
+      
       width: double.infinity,
-      height: 260,
+      height: 300,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             child: Text(
               'Popular',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -41,7 +43,7 @@ class _MoviePoster extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 130,
-      height: 190,
+      height: 220,
       margin: EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         children: [
@@ -57,7 +59,7 @@ class _MoviePoster extends StatelessWidget {
                 placeholder: const AssetImage('assets/no-image.jpg'),
                 image: NetworkImage('https://picsum.photos/300/400'),
                 width: 130,
-                height: 190,
+                height: 200,
                 fit: BoxFit.cover,
               ),
             ),
@@ -66,9 +68,9 @@ class _MoviePoster extends StatelessWidget {
           SizedBox(height: 5),
 
           Text(
-            'sadasd',
-            maxLines: 2,
+            'El nuevo camino del Jedi El nuevo camino del Jedi',
             overflow: TextOverflow.ellipsis,
+            maxLines: 2,
             textAlign: TextAlign.center,
           ),
         ],
